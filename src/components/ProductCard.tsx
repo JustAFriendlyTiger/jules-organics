@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/lib/products";
+import type { Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 
@@ -21,18 +21,17 @@ export default function ProductCard({ product }: { product: Product }) {
       <Link
         href={`/shop/${product.slug}`}
         className="block overflow-hidden aspect-square relative mb-4"
-        style={{ backgroundColor: "#F2EDE6" }}
+        style={{ backgroundColor: "#F0EAF6" }}
       >
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-103 transition-transform duration-500"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
         />
-        {/* Fallback botanical tint visible when image is absent */}
         <div className="absolute inset-0 img-cream -z-10" />
       </Link>
 
@@ -40,17 +39,21 @@ export default function ProductCard({ product }: { product: Product }) {
         <Link
           href={`/shop/${product.slug}`}
           className="text-sm leading-snug hover:opacity-60 transition-opacity mb-1"
-          style={{ fontFamily: "Georgia, serif", color: "#1C1C1A" }}
+          style={{ fontFamily: "Georgia, serif", color: "#1C1A20" }}
         >
           {product.name}
         </Link>
-        <p className="text-sm mb-3" style={{ color: "#7A7A72" }}>
+        <p className="text-sm mb-3" style={{ color: "#8A7A8E" }}>
           ${product.price.toFixed(2)}
         </p>
         <button
           onClick={handleAdd}
           className="btn-outline text-xs py-2 px-4 w-full mt-auto"
-          style={added ? { backgroundColor: "#3D6B47", color: "#FAF8F4", borderColor: "#3D6B47" } : {}}
+          style={
+            added
+              ? { backgroundColor: "#8B6A8A", color: "#FAF8FC", borderColor: "#8B6A8A" }
+              : {}
+          }
         >
           {added ? "Added" : "Add to Cart"}
         </button>

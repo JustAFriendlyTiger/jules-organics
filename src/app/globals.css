@@ -1,56 +1,50 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #FAF8F4;
-  --color-text: #1C1C1A;
-  --color-accent: #3D6B47;
-  --color-accent-light: #6B9E7A;
-  --color-muted: #7A7A72;
-  --color-border: #E8E4DC;
-  --color-surface: #F2EDE6;
-  --color-dark: #1A2E1C;
+  --color-bg: #FAF8FC;
+  --color-text: #1C1A20;
+  --color-accent: #8B6A8A;
+  --color-accent-dark: #5D3F6A;
+  --color-dark: #1A0A2E;
+  --color-surface: #F0EAF6;
+  --color-muted: #8A7A8E;
+  --color-border: #DDD0E8;
   --font-heading: Georgia, "Times New Roman", serif;
   --font-body: ui-sans-serif, system-ui, sans-serif;
   --spacing-section: 7.5rem;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background-color: #FAF8FC;
+  color: #1C1A20;
+  font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+  font-family: Georgia, "Times New Roman", serif;
   line-height: 1.15;
   font-weight: 400;
 }
 
 /* Announcement bar */
 .announcement-bar {
-  background-color: var(--color-dark);
-  color: #FAF8F4;
+  background-color: #1A0A2E;
+  color: #FAF8FC;
 }
 
 /* Buttons */
 .btn-primary {
   display: inline-block;
-  background-color: var(--color-accent);
-  color: #FAF8F4;
+  background-color: #8B6A8A;
+  color: #FAF8FC;
   padding: 0.75rem 2rem;
-  font-family: var(--font-body);
+  font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -58,56 +52,42 @@ h1, h2, h3, h4 {
   transition: background-color 0.2s ease;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
-.btn-primary:hover {
-  background-color: var(--color-dark);
-}
+.btn-primary:hover { background-color: #5D3F6A; }
 
 .btn-outline {
   display: inline-block;
   background-color: transparent;
-  color: var(--color-text);
+  color: #1C1A20;
   padding: 0.75rem 2rem;
-  font-family: var(--font-body);
+  font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid var(--color-text);
+  border: 1px solid #1C1A20;
   transition: background-color 0.2s ease, color 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
 }
-.btn-outline:hover {
-  background-color: var(--color-text);
-  color: var(--color-bg);
-}
+.btn-outline:hover { background-color: #1C1A20; color: #FAF8FC; }
 
 /* Section label */
 .section-label {
-  font-family: var(--font-body);
+  font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: #8A7A8E;
+  display: block;
 }
 
-/* Image placeholders — used until real photography is added */
-.img-hero {
-  background: linear-gradient(160deg, #1A2E1C 0%, #2D5016 45%, #4A7C59 100%);
-}
-.img-sage {
-  background: linear-gradient(180deg, #C8D8BC 0%, #A8BF98 100%);
-}
-.img-warm {
-  background: linear-gradient(180deg, #E8DDD0 0%, #D4C4A8 100%);
-}
-.img-forest {
-  background: linear-gradient(135deg, #0E1A10 0%, #1A2E1C 50%, #2D5016 100%);
-}
-.img-moss {
-  background: linear-gradient(180deg, #B8C8A4 0%, #8FA880 100%);
-}
-.img-cream {
-  background: linear-gradient(180deg, #F2EDE6 0%, #E8E0D0 100%);
-}
+/* Image placeholders */
+.img-hero    { background: linear-gradient(160deg, #1A0A2E 0%, #3D2060 45%, #7B5EA7 100%); }
+.img-sage    { background: linear-gradient(180deg, #D8CCE8 0%, #BFA8D8 100%); }
+.img-warm    { background: linear-gradient(180deg, #E8E0F0 0%, #D4C8E4 100%); }
+.img-forest  { background: linear-gradient(135deg, #0E0520 0%, #1A0A2E 50%, #3D2060 100%); }
+.img-moss    { background: linear-gradient(180deg, #C8B8DC 0%, #A898C4 100%); }
+.img-cream   { background: linear-gradient(180deg, #F0EAF6 0%, #E4D8F0 100%); }
