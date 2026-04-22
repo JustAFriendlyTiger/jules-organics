@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[61628,["/_next/static/chunks/126x8gyk8e6xw.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0qe.k4i3fihm2.js"],"default"]
+3:I[97367,["/_next/static/chunks/126x8gyk8e6xw.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"product":{"id":"6","slug":"christmas-spice-body-creme","name":"Christmas Spice Body Crème","price":65,"description":"A festive, deeply nourishing body crème blended with warming holiday spices. A luxurious treat for dry or sensitive skin.","details":["Organic grass-fed beef tallow","Cinnamon & clove essential oils","Warming spice blend","Rich crème texture"],"image":"/products/christmas-spice-body-creme.jpg","category":"body"}}],[["$","script","script-0",{"src":"/_next/static/chunks/0qe.k4i3fihm2.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"jw16AnWzy7lBEnng7X_E3"}
+5:null
