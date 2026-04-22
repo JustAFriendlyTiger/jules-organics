@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getFeaturedProducts } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 
@@ -11,20 +10,10 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="relative w-full" style={{ height: "92vh", minHeight: "560px" }}>
         <div className="absolute inset-0 img-hero" />
-        {/* Real hero image — add /public/hero.jpg to activate */}
-        <Image
-          src="/hero.jpg"
-          alt="Jules Organics lifestyle"
-          fill
-          priority
-          className="object-cover"
-          style={{ opacity: 0 }}
-          onLoad={(e) => {
-            (e.currentTarget as HTMLImageElement).style.opacity = "1";
-          }}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }} />
-
         <div className="absolute inset-0 flex items-end pb-20 md:pb-28 px-6 md:px-16">
           <div style={{ maxWidth: "560px" }}>
             <p className="section-label mb-5" style={{ color: "rgba(250,248,244,0.7)" }}>
@@ -32,7 +21,12 @@ export default function HomePage() {
             </p>
             <h1
               className="mb-6 text-white"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontFamily: "Georgia, serif", fontWeight: 400, lineHeight: 1.05 }}
+              style={{
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontFamily: "Georgia, serif",
+                fontWeight: 400,
+                lineHeight: 1.05,
+              }}
             >
               Pure.<br />Simple.<br />Yours.
             </h1>
@@ -45,18 +39,8 @@ export default function HomePage() {
 
       {/* ── STORY 1: WHY ORGANIC ── */}
       <section className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: "600px" }}>
-        {/* Image */}
-        <div className="relative order-1" style={{ minHeight: "420px" }}>
-          <div className="absolute inset-0 img-sage" />
-          <Image
-            src="/story-why-organic.jpg"
-            alt="Why organic tallow"
-            fill
-            className="object-cover"
-            style={{ opacity: 0 }}
-            onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-          />
-        </div>
+        {/* Image placeholder — replace with real photo at /public/story-why-organic.jpg */}
+        <div className="relative order-1 img-sage" style={{ minHeight: "420px" }} />
 
         {/* Text */}
         <div
@@ -66,7 +50,12 @@ export default function HomePage() {
           <p className="section-label mb-6">why organic?</p>
           <h2
             className="mb-6"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", fontFamily: "Georgia, serif", fontWeight: 400, color: "#1C1C1A" }}
+            style={{
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+              fontFamily: "Georgia, serif",
+              fontWeight: 400,
+              color: "#1C1C1A",
+            }}
           >
             Nature already knew
             <br />what your skin needed.
@@ -95,7 +84,12 @@ export default function HomePage() {
           <p className="section-label mb-6">our promise</p>
           <h2
             className="mb-6"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", fontFamily: "Georgia, serif", fontWeight: 400, color: "#1C1C1A" }}
+            style={{
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+              fontFamily: "Georgia, serif",
+              fontWeight: 400,
+              color: "#1C1C1A",
+            }}
           >
             Every ingredient
             <br />earns its place.
@@ -112,34 +106,14 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Image */}
-        <div className="relative order-1 md:order-2" style={{ minHeight: "420px" }}>
-          <div className="absolute inset-0 img-warm" />
-          <Image
-            src="/story-our-promise.jpg"
-            alt="Our promise — ingredient transparency"
-            fill
-            className="object-cover"
-            style={{ opacity: 0 }}
-            onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-          />
-        </div>
+        {/* Image placeholder — replace with real photo at /public/story-our-promise.jpg */}
+        <div className="relative order-1 md:order-2 img-warm" style={{ minHeight: "420px" }} />
       </section>
 
       {/* ── STORY 3: OUR PRODUCTS ── */}
       <section className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: "600px" }}>
-        {/* Image */}
-        <div className="relative order-1" style={{ minHeight: "420px" }}>
-          <div className="absolute inset-0 img-moss" />
-          <Image
-            src="/story-our-products.jpg"
-            alt="Jules Organics product line"
-            fill
-            className="object-cover"
-            style={{ opacity: 0 }}
-            onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-          />
-        </div>
+        {/* Image placeholder — replace with real photo at /public/story-our-products.jpg */}
+        <div className="relative order-1 img-moss" style={{ minHeight: "420px" }} />
 
         {/* Text */}
         <div
@@ -149,7 +123,12 @@ export default function HomePage() {
           <p className="section-label mb-6">our products</p>
           <h2
             className="mb-6"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", fontFamily: "Georgia, serif", fontWeight: 400, color: "#1C1C1A" }}
+            style={{
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+              fontFamily: "Georgia, serif",
+              fontWeight: 400,
+              color: "#1C1C1A",
+            }}
           >
             A small line,
             <br />made with intention.
@@ -170,28 +149,25 @@ export default function HomePage() {
       </section>
 
       {/* ── FULL-WIDTH IMAGE BREAK ── */}
-      <section className="relative w-full overflow-hidden" style={{ height: "60vh", minHeight: "380px" }}>
-        <div className="absolute inset-0 img-forest" />
-        <Image
-          src="/editorial-break.jpg"
-          alt="Botanical nature editorial"
-          fill
-          className="object-cover"
-          style={{ opacity: 0 }}
-          onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <p className="section-label mb-4" style={{ color: "rgba(250,248,244,0.6)" }}>
-              shaped by nature
-            </p>
-            <h2
-              className="text-white"
-              style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(1.75rem, 4vw, 3.5rem)", maxWidth: "600px" }}
-            >
-              Rooted in tradition.<br />Made for today.
-            </h2>
-          </div>
+      <section
+        className="relative w-full img-forest flex items-center justify-center text-center"
+        style={{ height: "60vh", minHeight: "380px" }}
+      >
+        <div>
+          <p className="section-label mb-4" style={{ color: "rgba(250,248,244,0.6)" }}>
+            shaped by nature
+          </p>
+          <h2
+            className="text-white"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontWeight: 400,
+              fontSize: "clamp(1.75rem, 4vw, 3.5rem)",
+              maxWidth: "600px",
+            }}
+          >
+            Rooted in tradition.<br />Made for today.
+          </h2>
         </div>
       </section>
 
@@ -202,7 +178,12 @@ export default function HomePage() {
             <div>
               <p className="section-label mb-3">the collection</p>
               <h2
-                style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", color: "#1C1C1A" }}
+                style={{
+                  fontFamily: "Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+                  color: "#1C1C1A",
+                }}
               >
                 Featured Products
               </h2>
@@ -223,7 +204,9 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 flex justify-center md:hidden">
-            <Link href="/shop" className="btn-outline">View All Products</Link>
+            <Link href="/shop" className="btn-outline">
+              View All Products
+            </Link>
           </div>
         </div>
       </section>
@@ -237,7 +220,12 @@ export default function HomePage() {
           <p className="section-label mb-6">our mission</p>
           <h2
             className="mb-6"
-            style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", color: "#1C1C1A" }}
+            style={{
+              fontFamily: "Georgia, serif",
+              fontWeight: 400,
+              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+              color: "#1C1C1A",
+            }}
           >
             Skincare the way nature intended.
           </h2>
