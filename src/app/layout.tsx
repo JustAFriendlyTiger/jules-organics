@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Jules Organics — Pure Organic Tallow Skincare",
   description:
-    "Farm-raised, carefully rendered beef tallow skincare products. Natural healing using God's design.",
+    "Small-batch organic tallow skincare made from grass-fed, pasture-raised beef. No fillers, no synthetics — just what your skin needs.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col">
         <CartProvider>
           <AnnouncementBar />
           <Navbar />

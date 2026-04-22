@@ -1,39 +1,113 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-purple: #1a0a2e;
-  --color-brand-mauve: #8b6a8a;
-  --color-brand-navy: #0d0d1f;
+  --color-bg: #FAF8F4;
+  --color-text: #1C1C1A;
+  --color-accent: #3D6B47;
+  --color-accent-light: #6B9E7A;
+  --color-muted: #7A7A72;
+  --color-border: #E8E4DC;
+  --color-surface: #F2EDE6;
+  --color-dark: #1A2E1C;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --spacing-section: 7.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #1a1a1a;
-  background: #ffffff;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+/* Announcement bar */
 .announcement-bar {
-  background-color: var(--color-brand-purple);
+  background-color: var(--color-dark);
+  color: #FAF8F4;
 }
 
-.btn-mauve {
-  background-color: var(--color-brand-mauve);
-  color: #ffffff;
-  transition: opacity 0.2s;
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #FAF8F4;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--color-dark);
 }
 
-.btn-mauve:hover {
-  opacity: 0.85;
+.btn-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-text);
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }
 
-.bg-brand-navy {
-  background-color: var(--color-brand-navy);
+/* Section label */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
 }
 
-.bg-brand-mauve {
-  background-color: var(--color-brand-mauve);
+/* Image placeholders — used until real photography is added */
+.img-hero {
+  background: linear-gradient(160deg, #1A2E1C 0%, #2D5016 45%, #4A7C59 100%);
 }
-
-.text-brand-mauve {
-  color: var(--color-brand-mauve);
+.img-sage {
+  background: linear-gradient(180deg, #C8D8BC 0%, #A8BF98 100%);
+}
+.img-warm {
+  background: linear-gradient(180deg, #E8DDD0 0%, #D4C4A8 100%);
+}
+.img-forest {
+  background: linear-gradient(135deg, #0E1A10 0%, #1A2E1C 50%, #2D5016 100%);
+}
+.img-moss {
+  background: linear-gradient(180deg, #B8C8A4 0%, #8FA880 100%);
+}
+.img-cream {
+  background: linear-gradient(180deg, #F2EDE6 0%, #E8E0D0 100%);
 }

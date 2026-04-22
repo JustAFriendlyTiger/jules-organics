@@ -30,10 +30,21 @@ export default function CartPage() {
 
   if (totalItems === 0) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-24 text-center">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h1>
-        <p className="text-gray-500 mb-8">Looks like you haven&apos;t added anything yet.</p>
-        <Link href="/shop" className="btn-mauve inline-block rounded-full px-8 py-3 font-semibold">
+      <div
+        className="flex flex-col items-center justify-center text-center px-6 py-32"
+        style={{ backgroundColor: "#FAF8F4", minHeight: "70vh" }}
+      >
+        <p className="section-label mb-4">your cart</p>
+        <h1
+          className="mb-4"
+          style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "1.75rem", color: "#1C1C1A" }}
+        >
+          Your cart is empty.
+        </h1>
+        <p className="text-sm mb-10" style={{ color: "#7A7A72" }}>
+          You haven&apos;t added anything yet.
+        </p>
+        <Link href="/shop" className="btn-primary">
           Browse Products
         </Link>
       </div>
@@ -41,88 +52,132 @@ export default function CartPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Your Cart</h1>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Items */}
-        <div className="lg:col-span-2 space-y-4">
-          {items.map(({ product, quantity }) => (
-            <div key={product.id} className="flex gap-4 border border-gray-200 rounded-xl p-4">
-              <div className="w-20 h-20 relative rounded-lg overflow-hidden bg-gray-100 shrink-0">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = "/placeholder-product.jpg";
-                  }}
-                />
-              </div>
-              <div className="flex flex-1 flex-col">
-                <div className="flex justify-between">
-                  <Link href={`/shop/${product.slug}`} className="font-medium text-gray-900 hover:underline text-sm">
-                    {product.name}
-                  </Link>
-                  <span className="font-semibold text-sm">${(product.price * quantity).toFixed(2)}</span>
-                </div>
-                <p className="text-xs text-gray-500 mt-0.5">${product.price.toFixed(2)} each</p>
-                <div className="flex items-center gap-3 mt-3">
-                  <div className="flex items-center border border-gray-300 rounded-full overflow-hidden">
-                    <button
-                      onClick={() => updateQty(product.id, quantity - 1)}
-                      className="px-3 py-1 text-gray-600 hover:bg-gray-100 transition-colors text-lg leading-none"
-                    >
-                      −
-                    </button>
-                    <span className="px-3 text-sm font-medium">{quantity}</span>
-                    <button
-                      onClick={() => updateQty(product.id, quantity + 1)}
-                      className="px-3 py-1 text-gray-600 hover:bg-gray-100 transition-colors text-lg leading-none"
-                    >
-                      +
-                    </button>
-                  </div>
-                  <button
-                    onClick={() => removeItem(product.id)}
-                    className="text-xs text-red-500 hover:text-red-700 transition-colors"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+    <div className="px-6 md:px-10 py-16 md:py-24" style={{ backgroundColor: "#FAF8F4", minHeight: "70vh" }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-12 border-b pb-6" style={{ borderColor: "#E8E4DC" }}>
+          <p className="section-label mb-2">your cart</p>
+          <h1
+            style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "2rem", color: "#1C1C1A" }}
+          >
+            {totalItems} {totalItems === 1 ? "item" : "items"}
+          </h1>
         </div>
 
-        {/* Summary */}
-        <div className="border border-gray-200 rounded-xl p-6 h-fit sticky top-24">
-          <h2 className="font-bold text-lg text-gray-900 mb-4">Order Summary</h2>
-          <div className="space-y-2 text-sm text-gray-600 mb-4">
-            <div className="flex justify-between">
-              <span>Subtotal ({totalItems} items)</span>
-              <span>${totalPrice.toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Shipping</span>
-              <span>{totalPrice >= 75 ? "Free" : "Calculated at checkout"}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Items */}
+          <div className="lg:col-span-2 space-y-6">
+            {items.map(({ product, quantity }) => (
+              <div
+                key={product.id}
+                className="flex gap-5 pb-6"
+                style={{ borderBottom: "1px solid #E8E4DC" }}
+              >
+                <div
+                  className="relative shrink-0 overflow-hidden"
+                  style={{ width: "88px", height: "88px", backgroundColor: "#F2EDE6" }}
+                >
+                  <div className="absolute inset-0 img-cream" />
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    style={{ opacity: 0 }}
+                    onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col">
+                  <div className="flex justify-between gap-4 mb-1">
+                    <Link
+                      href={`/shop/${product.slug}`}
+                      className="text-sm leading-snug hover:opacity-60 transition-opacity"
+                      style={{ fontFamily: "Georgia, serif", color: "#1C1C1A" }}
+                    >
+                      {product.name}
+                    </Link>
+                    <span className="text-sm shrink-0" style={{ color: "#1C1C1A" }}>
+                      ${(product.price * quantity).toFixed(2)}
+                    </span>
+                  </div>
+                  <p className="text-xs mb-3" style={{ color: "#7A7A72" }}>
+                    ${product.price.toFixed(2)} each
+                  </p>
+
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center border" style={{ borderColor: "#E8E4DC" }}>
+                      <button
+                        onClick={() => updateQty(product.id, quantity - 1)}
+                        className="w-8 h-8 flex items-center justify-center text-lg leading-none hover:opacity-50 transition-opacity"
+                        style={{ color: "#1C1C1A" }}
+                      >
+                        −
+                      </button>
+                      <span className="px-3 text-sm" style={{ color: "#1C1C1A" }}>{quantity}</span>
+                      <button
+                        onClick={() => updateQty(product.id, quantity + 1)}
+                        className="w-8 h-8 flex items-center justify-center text-lg leading-none hover:opacity-50 transition-opacity"
+                        style={{ color: "#1C1C1A" }}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => removeItem(product.id)}
+                      className="text-xs hover:opacity-50 transition-opacity"
+                      style={{ color: "#7A7A72", textDecoration: "underline", textUnderlineOffset: "3px" }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Summary */}
+          <div className="lg:col-span-1">
+            <div
+              className="p-8 sticky top-24"
+              style={{ backgroundColor: "#F2EDE6" }}
+            >
+              <p className="section-label mb-6">order summary</p>
+              <div className="space-y-3 text-sm mb-6" style={{ color: "#7A7A72" }}>
+                <div className="flex justify-between">
+                  <span>Subtotal</span>
+                  <span style={{ color: "#1C1C1A" }}>${totalPrice.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Shipping</span>
+                  <span style={{ color: "#1C1C1A" }}>
+                    {totalPrice >= 75 ? "Free" : "Calculated at checkout"}
+                  </span>
+                </div>
+              </div>
+              <div
+                className="flex justify-between text-sm font-medium pt-4 mb-8"
+                style={{ borderTop: "1px solid #E8E4DC", color: "#1C1C1A" }}
+              >
+                <span>Total</span>
+                <span>${totalPrice.toFixed(2)}</span>
+              </div>
+
+              <button
+                onClick={handleCheckout}
+                disabled={loading}
+                className="btn-primary w-full disabled:opacity-50"
+              >
+                {loading ? "Redirecting…" : "Checkout"}
+              </button>
+              <Link
+                href="/shop"
+                className="block text-center text-xs mt-4 hover:opacity-60 transition-opacity"
+                style={{ color: "#7A7A72", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                Continue shopping
+              </Link>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-4 mb-6 flex justify-between font-bold text-gray-900">
-            <span>Total</span>
-            <span>${totalPrice.toFixed(2)}</span>
-          </div>
-          <button
-            onClick={handleCheckout}
-            disabled={loading}
-            className="btn-mauve rounded-full py-3 px-6 font-semibold w-full disabled:opacity-60"
-          >
-            {loading ? "Redirecting..." : "Checkout"}
-          </button>
-          <Link href="/shop" className="block text-center text-sm text-gray-500 mt-4 hover:underline">
-            Continue Shopping
-          </Link>
         </div>
       </div>
     </div>

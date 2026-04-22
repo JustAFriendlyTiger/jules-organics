@@ -3,18 +3,29 @@ import { products } from "@/lib/products";
 
 export const metadata = {
   title: "Shop — Jules Organics",
+  description: "Browse our full collection of organic tallow skincare.",
 };
 
 export default function ShopPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Shop</h1>
-      <p className="text-gray-500 mb-8">All natural tallow skincare products</p>
+    <div className="px-6 md:px-10 py-20" style={{ backgroundColor: "#FAF8F4", minHeight: "80vh" }}>
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="mb-14 border-b pb-8" style={{ borderColor: "#E8E4DC" }}>
+          <p className="section-label mb-3">the collection</p>
+          <h1
+            style={{ fontFamily: "Georgia, serif", fontWeight: 400, fontSize: "clamp(1.75rem, 4vw, 3rem)", color: "#1C1C1A" }}
+          >
+            All Products
+          </h1>
+        </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,63 +1,96 @@
-import EmailSignupForm from "./EmailSignupForm";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-white mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Instagram */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Follow Us On Instagram!</h3>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="inline-block text-white hover:text-gray-300 transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-          </div>
+    <footer
+      className="mt-auto px-6 md:px-10 py-16"
+      style={{ borderTop: "1px solid #E8E4DC", backgroundColor: "#FAF8F4" }}
+    >
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* Brand */}
+        <div>
+          <p
+            className="text-lg tracking-widest mb-4"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            Jules Organics
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "#7A7A72" }}>
+            Pure tallow skincare rooted in nature.
+            <br />
+            No fillers. No synthetics. Just what your skin needs.
+          </p>
+        </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us!</h3>
-            <p className="mb-1">
+        {/* Quick Links */}
+        <div>
+          <p className="section-label mb-5">Quick Links</p>
+          <ul className="space-y-3">
+            {[
+              { href: "/shop", label: "Shop" },
+              { href: "/cart", label: "Cart" },
+            ].map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-sm hover:opacity-60 transition-opacity"
+                  style={{ color: "#1C1C1A" }}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <p className="section-label mb-5">Contact</p>
+          <ul className="space-y-2 text-sm" style={{ color: "#7A7A72" }}>
+            <li>
               <a
                 href="tel:7048834758"
-                className="underline hover:text-gray-300 transition-colors"
+                className="hover:opacity-60 transition-opacity"
+                style={{ color: "#1C1C1A" }}
               >
                 704-883-4758
               </a>
-            </p>
-            <p className="mb-6">
+            </li>
+            <li>
               <a
                 href="mailto:julesorganicscc@gmail.com"
-                className="underline hover:text-gray-300 transition-colors"
+                className="hover:opacity-60 transition-opacity"
+                style={{ color: "#1C1C1A" }}
               >
                 julesorganicscc@gmail.com
               </a>
-            </p>
-            <EmailSignupForm />
-          </div>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">
-          © {new Date().getFullYear()}. All rights reserved.
+      <div
+        className="max-w-6xl mx-auto mt-12 pt-6 flex items-center justify-between text-xs"
+        style={{ borderTop: "1px solid #E8E4DC", color: "#7A7A72" }}
+      >
+        <span>© {new Date().getFullYear()} Jules Organics. All rights reserved.</span>
+        <div className="flex items-center gap-3">
+          {/* Visa */}
+          <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="24" rx="3" fill="#E8E4DC"/>
+            <text x="50%" y="16" textAnchor="middle" fontSize="9" fill="#7A7A72" fontWeight="600">VISA</text>
+          </svg>
+          {/* MC */}
+          <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="24" rx="3" fill="#E8E4DC"/>
+            <circle cx="15" cy="12" r="7" fill="#C8B89A" opacity="0.8"/>
+            <circle cx="23" cy="12" r="7" fill="#A89880" opacity="0.8"/>
+          </svg>
+          {/* AMEX */}
+          <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="24" rx="3" fill="#E8E4DC"/>
+            <text x="50%" y="16" textAnchor="middle" fontSize="7" fill="#7A7A72" fontWeight="600">AMEX</text>
+          </svg>
         </div>
       </div>
     </footer>
