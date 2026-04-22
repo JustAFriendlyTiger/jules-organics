@@ -1,2 +1,2 @@
-:HL["/jules-organics/_next/static/chunks/0ffj0-q54dh05.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cart","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"JidHOXuuT6m3KmO5vPwR6"}
+:HL["/jules-organics/_next/static/chunks/12h5bpga2ulud.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cart","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"CpJefg_OjpoeENlV1LVho"}
